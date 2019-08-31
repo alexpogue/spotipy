@@ -343,6 +343,14 @@ class Spotify(object):
         """
         return self._get('search', q=q, limit=limit, offset=offset, type=type, market=market)
 
+    def playlist(self, playlist, fields=None):
+        """ Gets a playlist by id
+
+            Parameters:
+                - playlist - the id of the playlist
+        """
+        return self._get('playlists/' + playlist, fields=fields)
+
     def user(self, user):
         """ Gets basic profile information about a Spotify User
 
