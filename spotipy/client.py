@@ -351,6 +351,16 @@ class Spotify(object):
         """
         return self._get('playlists/' + playlist, fields=fields)
 
+    def playlist_tracks(self, playlist, fields=None, limit=100, offset=0):
+        """ Get full details of the tracks of a playlist
+
+            Parameters:
+                - playlist - the id of the playlist
+                - limit  - the number of items to return
+                - offset - the index of the first item to return
+        """
+        return self._get('playlists/%s/tracks' % playlist, limit=limit, offset=offset, fields=fields)
+
     def user(self, user):
         """ Gets basic profile information about a Spotify User
 
